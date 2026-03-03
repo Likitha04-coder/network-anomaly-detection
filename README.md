@@ -1,8 +1,14 @@
-\# 🛡️ Network Anomaly Detection Using Machine Learning
+\# 🔒 Network Anomaly Detection System using CICIDS2017
 
 
 
-A machine learning-based intrusion detection system that analyzes network traffic to classify normal and malicious activities using the CICIDS2017 dataset.
+!\[Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+
+!\[ML](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange.svg)
+
+!\[DL](https://img.shields.io/badge/Deep%20Learning-TensorFlow%2FKeras-red.svg)
+
+!\[Status](https://img.shields.io/badge/Status-Completed-brightgreen.svg)
 
 
 
@@ -14,17 +20,7 @@ A machine learning-based intrusion detection system that analyzes network traffi
 
 
 
-This project builds a complete network anomaly detection pipeline that:
-
-\- Loads and cleans ~2.8 million network traffic records
-
-\- Handles encoding issues, missing values, and timestamp errors
-
-\- Performs feature engineering and preprocessing
-
-\- Trains machine learning models to detect network attacks
-
-\- Classifies traffic into BENIGN and various attack types
+A comprehensive \*\*Machine Learning \& Deep Learning\*\* based \*\*Network Intrusion Detection System (NIDS)\*\* built using the \*\*CICIDS2017\*\* dataset. The system uses a \*\*two-layer architecture\*\* to first detect if network traffic is malicious, then classify the specific attack type among \*\*14 different attack categories\*\*.
 
 
 
@@ -32,51 +28,17 @@ This project builds a complete network anomaly detection pipeline that:
 
 
 
-\## 📥 Dataset
+\## 🎯 Objectives
 
 
 
-\*\*CICIDS2017 (Canadian Institute for Cybersecurity - Intrusion Detection System 2017)\*\*
+\- Detect \*\*Benign vs Malicious\*\* network traffic (Binary Classification)
 
+\- Classify \*\*14 types of network attacks\*\* (Multi-class Classification)
 
+\- Predict \*\*time to next attack\*\* (Regression)
 
-Download from official source:
-
-https://www.unb.ca/cic/datasets/ids-2017.html
-
-
-
-\### Files Used:
-
-
-
-| File Name | Description |
-
-|-----------|-------------|
-
-| Monday-WorkingHours.pcap\_ISCX.csv | Normal traffic |
-
-| Tuesday-WorkingHours.pcap\_ISCX.csv | FTP-Patator, SSH-Patator |
-
-| Wednesday-workingHours.pcap\_ISCX.csv | DoS, Heartbleed |
-
-| Thursday-WorkingHours-Morning-WebAttacks.pcap\_ISCX.csv | Web Attacks |
-
-| Thursday-WorkingHours-Afternoon-Infilteration.pcap\_ISCX.csv | Infiltration |
-
-| Friday-WorkingHours-Morning.pcap\_ISCX.csv | Bot |
-
-| Friday-WorkingHours-Afternoon-DDos.pcap\_ISCX.csv | DDoS |
-
-| Friday-WorkingHours-Afternoon-PortScan.pcap\_ISCX.csv | Port Scan |
-
-
-
-\- \*\*Total Records:\*\* ~2,830,743 rows
-
-\- \*\*Features:\*\* 85 columns
-
-\- \*\*Attack Types:\*\* BENIGN, DDoS, PortScan, Bot, Infiltration, Web Attack, FTP-Patator, SSH-Patator, DoS, Heartbleed
+\- Compare \*\*ML vs Deep Learning\*\* model performance
 
 
 
@@ -84,95 +46,59 @@ https://www.unb.ca/cic/datasets/ids-2017.html
 
 
 
-\## 🛠️ Tech Stack
+\## 📊 Dataset
 
 
 
-| Tool | Purpose |
+| Detail | Value |
 
-|------|---------|
+|--------|-------|
 
-| Python 3.x | Programming Language |
+| \*\*Dataset\*\* | CICIDS2017 (Canadian Institute for Cybersecurity) |
 
-| Pandas | Data Loading and Cleaning |
+| \*\*Total Records\*\* | 2,830,743+ |
 
-| NumPy | Numerical Operations |
+| \*\*Files\*\* | 8 CSV files |
 
-| Scikit-learn | Machine Learning Models |
+| \*\*Features\*\* | 85 network flow features |
 
-| Matplotlib | Data Visualization |
-
-| Seaborn | Statistical Plots |
-
-| Jupyter Notebook | Development Environment |
+| \*\*Attack Types\*\* | 14 + Benign |
 
 
 
----
+\### Attack Types:
 
+| # | Attack Type |
 
+|---|-------------|
 
-\## 📁 Project Structure
+| 1 | FTP-Patator |
 
+| 2 | SSH-Patator |
 
+| 3 | DoS Slowloris |
 
-network-anomaly-detection/
+| 4 | DoS Slowhttptest |
 
-├── network\_anomaly\_detection.ipynb   # Main Jupyter Notebook
+| 5 | DoS Hulk |
 
-├── README.md                         # Project Documentation
+| 6 | DoS GoldenEye |
 
-├── requirements.txt                  # Python Dependencies
+| 7 | Heartbleed |
 
-├── .gitignore                        # Ignored files
+| 8 | Web Attack — Brute Force |
 
-└── images/                           # Screenshots and Plots (optional)
+| 9 | Web Attack — XSS |
 
+| 10 | Web Attack — SQL Injection |
 
+| 11 | Infiltration |
 
----
+| 12 | Bot |
 
+| 13 | DDoS |
 
-
-\## ⚙️ Installation and Setup
-
-
-
-\### 1. Clone the Repository
-
-
-
-git clone https://github.com/YOUR\_USERNAME/network-anomaly-detection.git
-
-cd network-anomaly-detection
-
-
-
-\### 2. Install Dependencies
-
-
-
-pip install -r requirements.txt
-
-
-
-\### 3. Download Dataset
-
-\- Visit: https://www.unb.ca/cic/datasets/ids-2017.html
-
-\- Download the GeneratedLabelledFlows folder
-
-\- Place CSV files in your preferred directory
-
-\- Update the data\_dir path in the notebook
-
-
-
-\### 4. Run Notebook
-
-
-
-jupyter notebook network\_anomaly\_detection.ipynb
+| 14 | PortScan |
 
 
 
@@ -180,11 +106,51 @@ jupyter notebook network\_anomaly\_detection.ipynb
 
 
 
-\## 🔄 Workflow
+\## 🏗️ Project Architecture
 
 
 
-Raw CSV Files → Data Loading (8 CSV files combined) → Data Cleaning (NaT removal, encoding fixes) → Exploratory Data Analysis (EDA) → Feature Engineering and Preprocessing → Model Training and Evaluation → Results and Classification Report
+```
+
+Input Network Traffic
+
+&nbsp;       |
+
+&nbsp;       v
+
++---------------------+
+
+|  Layer 1: Binary     |
+
+|  BENIGN vs ATTACK    |
+
+|  (RandomForest/XGB)  |
+
++---------+-----------+
+
+&nbsp;         |
+
+&nbsp;   +-----+-----+
+
+&nbsp;   |           |
+
+&nbsp;BENIGN     ATTACK
+
+&nbsp;   |           |
+
+&nbsp;   v           v
+
+&nbsp; Done   +---------------------+
+
+&nbsp;        |  Layer 2: Multi-class|
+
+&nbsp;        |  Attack Type (14)    |
+
+&nbsp;        |  (DL / RF / XGB)     |
+
+&nbsp;        +---------------------+
+
+```
 
 
 
@@ -192,23 +158,87 @@ Raw CSV Files → Data Loading (8 CSV files combined) → Data Cleaning (NaT rem
 
 
 
-\## 📊 Key Steps
+\## 🔬 Methodology
 
 
 
-1\. \*\*Data Loading\*\* - Combined 8 CSV files (~2.8M records)
+\### 1. Data Loading \& Preprocessing
 
-2\. \*\*Cleaning\*\* - Removed 288,602 NaT timestamp rows from WebAttacks file
+\- Loaded \*\*8 CSV files\*\* from CICIDS2017 dataset
 
-3\. \*\*Encoding Fix\*\* - Handled ISO-8859-1 encoding issues
+\- Handled \*\*NaT timestamps\*\* and missing values
 
-4\. \*\*EDA\*\* - Analyzed attack distribution and feature correlations
+\- Cleaned column names and encoded categorical features
 
-5\. \*\*Preprocessing\*\* - Scaling, encoding, train-test split
+\- Created \*\*Binary\_Label\*\* (0: BENIGN, 1: ATTACK)
 
-6\. \*\*Modeling\*\* - Trained ML classifiers for anomaly detection
+\- Created \*\*Attack\_Type\*\* column for multi-class classification
 
-7\. \*\*Evaluation\*\* - Accuracy, Precision, Recall, F1-Score
+
+
+\### 2. Exploratory Data Analysis (EDA)
+
+\- Distribution analysis of network features
+
+\- Correlation heatmaps
+
+\- Class distribution visualization
+
+\- Temporal analysis (hour, minute patterns)
+
+\- Univariate \& Bivariate analysis
+
+
+
+\### 3. Feature Engineering
+
+\- Label Encoding for categorical features
+
+\- Standard Scaling for numerical features
+
+\- Removed \*\*highly correlated features\*\* (>0.9 with target) to prevent data leakage
+
+\- Final feature set: \*\*87 features\*\*
+
+
+
+\### 4. Model Training \& Evaluation
+
+
+
+\#### Layer 1: Binary Classification (BENIGN vs ATTACK)
+
+\- Random Forest Classifier
+
+\- Logistic Regression
+
+\- XGBoost Classifier
+
+\- LightGBM Classifier
+
+\- \*\*5-Fold Stratified Cross Validation\*\*
+
+
+
+\#### Layer 2: Multi-class Attack Classification
+
+\- Random Forest Classifier
+
+\- XGBoost Classifier
+
+\- LightGBM Classifier
+
+\- \*\*Deep Learning: MLP (Multi-Layer Perceptron)\*\*
+
+\- \*\*Deep Learning: LSTM (Long Short-Term Memory)\*\*
+
+
+
+\### 5. Time to Next Attack Prediction
+
+\- Random Forest Regressor
+
+\- Predicts time gap between attacks
 
 
 
@@ -220,17 +250,53 @@ Raw CSV Files → Data Loading (8 CSV files combined) → Data Cleaning (NaT rem
 
 
 
-| Metric | Score |
+\### Layer 1: Binary Classification (BENIGN vs ATTACK)
+
+
+
+| Model | Accuracy | Precision | Recall | F1-Score | AUC |
+
+|-------|----------|-----------|--------|----------|-----|
+
+| \*\*Random Forest\*\* | \*\*99.98%\*\* | 99.98% | 99.98% | 99.98% | 1.0000 |
+
+| \*\*XGBoost\*\* | \*\*99.99%\*\* | 99.99% | 99.99% | 99.99% | 1.0000 |
+
+| \*\*LightGBM\*\* | \*\*99.99%\*\* | 99.99% | 99.99% | 99.99% | 1.0000 |
+
+| Logistic Regression | 80.27% | 81.27% | 80.26% | 80.10% | 0.8872 |
+
+
+
+\### Layer 2: Multi-class Attack Classification
+
+
+
+| Model | Accuracy |
+
+|-------|----------|
+
+| \*\*MLP (Deep Learning)\*\* | \*\*99.55%\*\* |
+
+| \*\*LSTM (Deep Learning)\*\* | \*\*98.01%\*\* |
+
+| Random Forest | 99.26%+ |
+
+
+
+\### Time to Next Attack Prediction
+
+
+
+| Metric | Value |
 
 |--------|-------|
 
-| Accuracy | Update after training |
+| MAE | 583.38 minutes |
 
-| Precision | Update after training |
+| RMSE | 3366.42 minutes |
 
-| Recall | Update after training |
-
-| F1-Score | Update after training |
+| \*\*R2 Score\*\* | \*\*0.958\*\* |
 
 
 
@@ -238,19 +304,197 @@ Raw CSV Files → Data Loading (8 CSV files combined) → Data Cleaning (NaT rem
 
 
 
-\## 🚀 Future Improvements
+\## 🛠️ Tech Stack
 
 
 
-\- Add Deep Learning models (LSTM, Autoencoder)
+| Category | Tools |
 
-\- Real-time network traffic monitoring
+|----------|-------|
 
-\- Deploy as web application using Flask or Streamlit
+| \*\*Language\*\* | Python 3.8+ |
 
-\- Add more datasets for cross-validation
+| \*\*Data Processing\*\* | Pandas, NumPy |
 
-\- Feature importance analysis
+| \*\*Visualization\*\* | Matplotlib, Seaborn |
+
+| \*\*Machine Learning\*\* | Scikit-learn, XGBoost, LightGBM |
+
+| \*\*Deep Learning\*\* | TensorFlow, Keras |
+
+| \*\*Model Saving\*\* | Joblib |
+
+| \*\*Environment\*\* | Jupyter Notebook, Anaconda |
+
+
+
+---
+
+
+
+\## 📁 Project Structure
+
+
+
+```
+
+Network-Anomaly-Detection/
+
+|
+
+├── Assignment-Final.ipynb        # Complete notebook (EDA + ML + DL)
+
+├── README.md                     # Project documentation
+
+├── .gitignore                    # Ignore large files
+
+|
+
+├── time\_to\_next\_attack\_model.pkl # Saved regression model
+
+├── time\_to\_next\_attack\_features.pkl # Saved feature list
+
+|
+
+└── TrafficLabelling/             # Dataset folder (not uploaded)
+
+&nbsp;   ├── Friday-WorkingHours-Afternoon-DDos.pcap\_ISCX.csv
+
+&nbsp;   ├── Friday-WorkingHours-Afternoon-PortScan.pcap\_ISCX.csv
+
+&nbsp;   ├── Friday-WorkingHours-Morning.pcap\_ISCX.csv
+
+&nbsp;   ├── Monday-WorkingHours.pcap\_ISCX.csv
+
+&nbsp;   ├── Thursday-WorkingHours-Afternoon-Infilteration.pcap\_ISCX.csv
+
+&nbsp;   ├── Thursday-WorkingHours-Morning-WebAttacks.pcap\_ISCX.csv
+
+&nbsp;   ├── Tuesday-WorkingHours.pcap\_ISCX.csv
+
+&nbsp;   └── Wednesday-workingHours.pcap\_ISCX.csv
+
+```
+
+
+
+---
+
+
+
+\## 🚀 How to Run
+
+
+
+\### 1. Clone the Repository
+
+```bash
+
+git clone https://github.com/Likitha04-coder/Network-Anomaly-Detection.git
+
+cd Network-Anomaly-Detection
+
+```
+
+
+
+\### 2. Install Dependencies
+
+```bash
+
+pip install pandas numpy matplotlib seaborn scikit-learn xgboost lightgbm tensorflow joblib
+
+```
+
+
+
+\### 3. Download Dataset
+
+\- Download CICIDS2017 from: \[https://www.unb.ca/cic/datasets/ids-2017.html](https://www.unb.ca/cic/datasets/ids-2017.html)
+
+\- Place CSV files in `TrafficLabelling/` folder
+
+
+
+\### 4. Run the Notebook
+
+```bash
+
+jupyter notebook Assignment-Final.ipynb
+
+```
+
+
+
+---
+
+
+
+\## 📊 Sample Predictions
+
+
+
+| # | Layer 1 Prediction | Layer 2 Attack Type |
+
+|---|-------------------|---------------------|
+
+| 1 | Benign | N/A |
+
+| 2 | Benign | N/A |
+
+| 3 | Benign | N/A |
+
+| 4 | Attack | PortScan |
+
+| 5 | Attack | DoS Hulk |
+
+| 6 | Attack | DDoS |
+
+| 7 | Attack | DoS GoldenEye |
+
+| 8 | Attack | FTP-Patator |
+
+| 9 | Attack | SSH-Patator |
+
+| 10 | Attack | Web Attack — Brute Force |
+
+
+
+---
+
+
+
+\## 🔑 Key Findings
+
+
+
+1\. \*\*Tree-based models\*\* (RF, XGB, LGBM) achieved near-perfect accuracy (\*\*99.99%\*\*) for binary classification
+
+2\. \*\*Deep Learning MLP\*\* achieved \*\*99.55%\*\* accuracy for multi-class attack classification
+
+3\. \*\*Logistic Regression\*\* struggled with the dataset (\*\*80.27%\*\*), showing non-linear patterns
+
+4\. \*\*Two-layer architecture\*\* provides both detection and classification in one pipeline
+
+5\. \*\*Time-to-next-attack prediction\*\* achieved \*\*R2 = 0.958\*\*, useful for proactive defense
+
+
+
+---
+
+
+
+\## ⚠️ Notes
+
+
+
+\- Dataset is \*\*NOT included\*\* in this repo due to size (~2.8GB)
+
+\- Download from the official CICIDS2017 source
+
+\- GPU recommended for deep learning models but CPU works too
+
+\- 200K sampled rows used for faster training
 
 
 
@@ -264,21 +508,13 @@ Raw CSV Files → Data Loading (8 CSV files combined) → Data Cleaning (NaT rem
 
 \*\*Likitha Puttaraju\*\*
 
-\- GitHub: https://github.com/Likitha04-coder
-
-\- Email: likithap2404@gmail.com
-
-\- LinkedIn: https://linkedin.com/in/likitha-putta-raju-904a551b0
-
-s
 
 
+\- 📧 Email: likithap2404@gmail.com
 
-\## 📄 License
+\- 💼 LinkedIn: \[Likitha Puttaraju](https://linkedin.com/in/likitha-putta-raju-904a551b0)
 
-
-
-This project is licensed under the MIT License.
+\- 🐙 GitHub: \[@Likitha04-coder](https://github.com/Likitha04-coder)
 
 
 
@@ -286,11 +522,27 @@ This project is licensed under the MIT License.
 
 
 
-\## ⭐ Show Support
+\## 📜 License
 
 
 
-If you found this project helpful, please give it a star on GitHub!
+This project is for \*\*educational and research purposes only\*\*.
+
+
+
+---
+
+
+
+\## ⭐ If you found this useful, give it a star!
+
+```
+
+
+
+---
+
+
 
 
 
