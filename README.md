@@ -410,7 +410,7 @@ pip install pandas numpy matplotlib seaborn scikit-learn xgboost lightgbm tensor
 
 \### 3. Download Dataset
 
-\- Download CICIDS2017 from: \[https://www.unb.ca/cic/datasets/ids-2017.html](https://www.unb.ca/cic/datasets/ids-2017.html)
+\- - Download CICIDS2017 from: \[CICIDS2017 Dataset](https://www.unb.ca/cic/datasets/ids-2017.html)
 
 \- Place CSV files in `TrafficLabelling/` folder
 
